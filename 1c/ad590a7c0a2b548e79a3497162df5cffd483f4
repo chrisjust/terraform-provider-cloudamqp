@@ -1,0 +1,48 @@
+examples/team/main.tf
+  h_59a54e20da1417 1-4
+cloudamqp/data_source_cloudamqp_team_members.go
+  h_59a54e20da1417 1-83
+api/models/team/team.go
+  s_f1d25697d107cd::t_a3b0d7b39a4c93 1-10,14-16
+  h_59a54e20da1417 11-13,17-19
+cloudamqp/resource_cloudamqp_team_member.go
+  s_f1d25697d107cd::t_ca1fdfdbb5d6a0 1-19,207-216
+  s_f1d25697d107cd::t_488f6680836ebf 20-206
+api/team.go
+  s_f1d25697d107cd::t_1e55dbee872249 1-15,17-38,40-61,63-84,86-102
+  s_f1d25697d107cd::t_72388de8aeae4b 16,39,62,85
+CHANGELOG.md
+  s_f1d25697d107cd::t_b5a15c891b5e5f 7
+  h_59a54e20da1417 5-6,8-9,17
+examples/team/variables.tf
+  h_59a54e20da1417 1-10
+docs/resources/team_member.md
+  s_f1d25697d107cd::t_d2abab8928111d 1-2,52-53
+  s_f1d25697d107cd::t_de54483bca532b 3-51
+docs/data-sources/team_members.md
+  h_59a54e20da1417 1-59
+cloudamqp/provider.go
+  h_59a54e20da1417 166
+  s_f1d25697d107cd::t_f85eb860d817ca 120
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "1cad590a7c0a2b548e79a3497162df5cffd483f4",
+  "prompts": {},
+  "humans": {
+    "h_59a54e20da1417": {
+      "author": "Chris Justesen <chris.justesen@visma.com>"
+    }
+  },
+  "sessions": {
+    "s_f1d25697d107cd": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f133ae5e5ffejayP6R6QmoDGSG",
+        "model": "glm-5.3-flash"
+      },
+      "human_author": "Chris Justesen <chris.justesen@visma.com>"
+    }
+  }
+}
