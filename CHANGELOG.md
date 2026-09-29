@@ -2,6 +2,11 @@
 
 ## 1.50.0 (Unreleased)
 
+FEATURES:
+
+* **New Resource:** `cloudamqp_team_member` - Invite and manage a team member on the CloudAMQP account ([#551])
+* **New Data Source:** `cloudamqp_team_members` - Retrieve all team members of the CloudAMQP account ([#551])
+
 IMPROVEMENTS:
 
 * resource/cloudamqp_rabbitmq_configuration: Added `log_level` setting that changes the level of every RabbitMQ log output without a restart ([#547])
@@ -9,6 +14,7 @@ IMPROVEMENTS:
 
 [#547]: https://github.com/cloudamqp/terraform-provider-cloudamqp/pull/547
 [#550]: https://github.com/cloudamqp/terraform-provider-cloudamqp/pull/550
+[#551]: https://github.com/cloudamqp/terraform-provider-cloudamqp/pull/551
 
 ## 1.49.0 (11 Sep, 2026)
 
