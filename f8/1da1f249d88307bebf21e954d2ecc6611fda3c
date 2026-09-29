@@ -1,0 +1,16 @@
+cloudamqp/data_source_cloudamqp_team_members.go
+  h_59a54e20da1417 48-55,85-88,94
+cloudamqp/resource_cloudamqp_team_member.go
+  h_59a54e20da1417 11,39,85-89,118,156,185,223,250-278
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "f81da1f249d88307bebf21e954d2ecc6611fda3c",
+  "prompts": {},
+  "humans": {
+    "h_59a54e20da1417": {
+      "author": "Chris Justesen <chris.justesen@visma.com>"
+    }
+  }
+}
