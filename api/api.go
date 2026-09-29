@@ -56,6 +56,12 @@ func (api *API) callWithRetry(ctx context.Context, sling *sling.Sling, request r
 		tflog.Warn(ctx, fmt.Sprintf("callWithRetry function=%s attempt=%d error=%s", request.functionName,
 			request.attempt, err.Error()))
 	}
+	if response == nil {
+		if err == nil {
+			err = fmt.Errorf("no response received")
+		}
+		return fmt.Errorf("callWithRetry function=%s: %w", request.functionName, err)
+	}
 
 	tflog.Debug(ctx, fmt.Sprintf("callWithRetry function=%s attempt=%d status=%d", request.functionName,
 		request.attempt, response.StatusCode))
