@@ -1,0 +1,18 @@
+api/models/team/team.go
+  h_59a54e20da1417 21-24
+api/team.go
+  h_59a54e20da1417 66
+api/api.go
+  h_59a54e20da1417 59-64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "4ca5f627f07c2006e7d7ac30608999f929e36343",
+  "prompts": {},
+  "humans": {
+    "h_59a54e20da1417": {
+      "author": "Chris Justesen <chris.justesen@visma.com>"
+    }
+  }
+}
