@@ -1,0 +1,19 @@
+cloudamqp/resource_cloudamqp_team.go
+  s_f1d25697d107cd::t_b129d1815f2393 1-216
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "e725bf7a71704f57e1a9a1d3fec0f07176c6bb70",
+  "prompts": {},
+  "sessions": {
+    "s_f1d25697d107cd": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f133ae5e5ffejayP6R6QmoDGSG",
+        "model": "glm-5.3-flash"
+      },
+      "human_author": "Chris Justesen <chris.justesen@visma.com>"
+    }
+  }
+}
