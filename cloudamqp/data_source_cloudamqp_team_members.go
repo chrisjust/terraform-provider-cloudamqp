@@ -45,6 +45,14 @@ func dataSourceTeamMembers() *schema.Resource {
 							},
 							Description: "Roles of the team member",
 						},
+						"tags": {
+							Type:     schema.TypeList,
+							Computed: true,
+							Elem: &schema.Schema{
+								Type: schema.TypeString,
+							},
+							Description: "Tags of the team member",
+						},
 					},
 				},
 			},
@@ -74,10 +82,15 @@ func dataSourceTeamMembersRead(ctx context.Context, d *schema.ResourceData, meta
 }
 
 func readTeamMember(data model.TeamMemberResponse) map[string]any {
+	tags := data.Tags
+	if tags == nil {
+		tags = []string{}
+	}
 	return map[string]any{
 		"user_id":          data.ID,
 		"email":            data.Email,
 		"tfa_auth_enabled": data.TfaAuthEnabled,
 		"roles":            data.Roles,
+		"tags":             tags,
 	}
 }

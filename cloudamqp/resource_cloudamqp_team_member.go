@@ -8,6 +8,7 @@ import (
 	"github.com/cloudamqp/terraform-provider-cloudamqp/api"
 	model "github.com/cloudamqp/terraform-provider-cloudamqp/api/models/team"
 	"github.com/hashicorp/terraform-plugin-framework-validators/stringvalidator"
+	"github.com/hashicorp/terraform-plugin-framework/attr"
 	"github.com/hashicorp/terraform-plugin-framework/path"
 	"github.com/hashicorp/terraform-plugin-framework/resource"
 	"github.com/hashicorp/terraform-plugin-framework/resource/schema"
@@ -35,6 +36,7 @@ type teamMemberResourceModel struct {
 	Id    types.String `tfsdk:"id"`
 	Email types.String `tfsdk:"email"`
 	Role  types.String `tfsdk:"role"`
+	Tags  types.Set    `tfsdk:"tags"`
 }
 
 func (r *teamMemberResource) Configure(ctx context.Context, request resource.ConfigureRequest, response *resource.ConfigureResponse) {
@@ -80,6 +82,11 @@ func (r *teamMemberResource) Schema(ctx context.Context, request resource.Schema
 					stringplanmodifier.RequiresReplace(),
 				},
 			},
+			"tags": schema.SetAttribute{
+				Optional:    true,
+				ElementType: types.StringType,
+				Description: "Tags for the team member",
+			},
 			"role": schema.StringAttribute{
 				Optional:    true,
 				Computed:    true,
@@ -108,6 +115,7 @@ func (r *teamMemberResource) Create(ctx context.Context, request resource.Create
 	params := model.InviteTeamMemberRequest{
 		Email: email,
 		Role:  role,
+		Tags:  setToStringSlice(plan.Tags),
 	}
 	if _, err := r.client.InviteTeamMember(ctx, params); err != nil {
 		if isAlreadyInvited(err) {
@@ -145,6 +153,7 @@ func (r *teamMemberResource) Read(ctx context.Context, request resource.ReadRequ
 	if member != nil {
 		state.Id = types.StringValue(member.ID)
 		state.Role = types.StringValue(primaryRole(member.Roles))
+		state.Tags = stringSliceToSet(member.Tags)
 		response.Diagnostics.Append(response.State.Set(ctx, &state)...)
 		return
 	}
@@ -173,6 +182,7 @@ func (r *teamMemberResource) Update(ctx context.Context, request resource.Update
 
 	params := model.UpdateTeamMemberRequest{
 		Role: plan.Role.ValueString(),
+		Tags: setToStringSlice(plan.Tags),
 	}
 	if _, err := r.client.UpdateTeamMember(ctx, plan.Id.ValueString(), params); err != nil {
 		response.Diagnostics.AddError(
@@ -210,6 +220,7 @@ func (r *teamMemberResource) ImportState(ctx context.Context, request resource.I
 	response.State.SetAttribute(ctx, path.Root("email"), request.ID)
 	response.State.SetAttribute(ctx, path.Root("id"), types.StringNull())
 	response.State.SetAttribute(ctx, path.Root("role"), types.StringUnknown())
+	response.State.SetAttribute(ctx, path.Root("tags"), types.SetNull(types.StringType))
 }
 
 func (r *teamMemberResource) findMember(ctx context.Context, email string) (*model.TeamMemberResponse, error) {
@@ -235,4 +246,33 @@ func primaryRole(roles []string) string {
 		return "member"
 	}
 	return roles[0]
+}
+
+func setToStringSlice(set types.Set) []string {
+	if set.IsNull() || set.IsUnknown() {
+		return nil
+	}
+	elements := set.Elements()
+	tags := make([]string, 0, len(elements))
+	for _, element := range elements {
+		if tag, ok := element.(types.String); ok {
+			tags = append(tags, tag.ValueString())
+		}
+	}
+	return tags
+}
+
+func stringSliceToSet(tags []string) types.Set {
+	if len(tags) == 0 {
+		return types.SetNull(types.StringType)
+	}
+	elements := make([]attr.Value, 0, len(tags))
+	for _, tag := range tags {
+		elements = append(elements, types.StringValue(tag))
+	}
+	value, diags := types.SetValue(types.StringType, elements)
+	if diags.HasError() {
+		return types.SetNull(types.StringType)
+	}
+	return value
 }
