@@ -1,0 +1,19 @@
+api/team.go
+  s_f1d25697d107cd::t_1e55dbee872249 1-102
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "4fb70136e2c4520fd248936cb5878561b04a037e",
+  "prompts": {},
+  "sessions": {
+    "s_f1d25697d107cd": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f133ae5e5ffejayP6R6QmoDGSG",
+        "model": "glm-5.3-flash"
+      },
+      "human_author": "Chris Justesen <chris.justesen@visma.com>"
+    }
+  }
+}
