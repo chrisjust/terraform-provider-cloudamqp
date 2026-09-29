@@ -1,5 +1,6 @@
 api/models/team/team.go
-  s_f1d25697d107cd::t_a3b0d7b39a4c93 1-19
+  s_f1d25697d107cd::t_a3b0d7b39a4c93 1-19,1-10,14-16
+  h_59a54e20da1417 19
 ---
 {
   "schema_version": "authorship/3.0.0",
