@@ -63,7 +63,7 @@ func (api *API) RemoveTeamMember(ctx context.Context, email string) (map[string]
 	)
 
 	tflog.Debug(ctx, fmt.Sprintf("method=POST path=%s email=%s", path, email))
-	err := api.callWithRetry(ctx, api.sling.New().Post(path).BodyForm(map[string]string{"email": email}), retryRequest{
+	err := api.callWithRetry(ctx, api.sling.New().Post(path).BodyForm(model.RemoveTeamMemberRequest{Email: email}), retryRequest{
 		functionName: "RemoveTeamMember",
 		resourceName: "Team",
 		attempt:      1,

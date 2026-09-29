@@ -18,3 +18,7 @@ type UpdateTeamMemberRequest struct {
 	Role string   `url:"role,omitempty"`
 	Tags []string `url:"tags" del:","`
 }
+
+type RemoveTeamMemberRequest struct {
+	Email string `url:"email"`
+}
