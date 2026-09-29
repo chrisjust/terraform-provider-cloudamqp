@@ -7,7 +7,9 @@ description: |-
 
 # cloudamqp_team_member
 
-This resource allows you to invite and manage a team member on your CloudAMQP account.
+This resource allows you to invite and manage a team member on your CloudAMQP account. The member
+only appears in the account team after the invitation has been accepted; until then the user id is
+empty and role and tag changes are deferred until after acceptance.
 
 ## Example Usage
 
@@ -15,6 +17,7 @@ This resource allows you to invite and manage a team member on your CloudAMQP ac
 resource "cloudamqp_team_member" "member" {
   email = "member@example.com"
   role  = "devops"
+  tags  = ["oncall", "platform"]
 }
 ```
 
@@ -25,12 +28,14 @@ The following arguments are supported:
 * `email` - (Required) Email address of the team member. Changing this forces a new resource to be created.
 * `role`  - (Optional) Role of the team member. Valid options are: `admin`, `devops`, `member`,
             `monitor`, `billing manager`. Default set to `member`.
+* `tags`  - (Optional) Tags for the team member. Changing this while the invitation is still
+            pending is recorded and applied together after the invitee accepts.
 
 ## Attributes Reference
 
 All attributes references are computed
 
-* `id`  - The identifier for this resource, set to the email address of the team member.
+* `id` - User identifier in UUID format. Empty until the invitee accepts the invitation.
 
 ## Import
 

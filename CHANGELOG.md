@@ -4,7 +4,7 @@
 
 FEATURES:
 
-* **New Resource:** `cloudamqp_team_member` - Invite and manage a team member on the CloudAMQP account ([#551])
+* **New Resource:** `cloudamqp_team_member` - Invite and manage a team member, role and tags on the CloudAMQP account ([#551])
 * **New Data Source:** `cloudamqp_team_members` - Retrieve all team members of the CloudAMQP account ([#551])
 
 IMPROVEMENTS:

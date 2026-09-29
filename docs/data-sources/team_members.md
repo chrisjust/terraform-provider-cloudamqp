@@ -38,6 +38,7 @@ The `members` block consists of:
 * `email`            - Email address of the team member.
 * `tfa_auth_enabled` - Whether two factor authentication is enabled for the team member.
 * `roles`            - Roles of the team member.
+* `tags`             - Tags of the team member.
 
 ## Import
 
