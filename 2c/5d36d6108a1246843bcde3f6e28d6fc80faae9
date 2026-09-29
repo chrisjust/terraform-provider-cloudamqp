@@ -1,0 +1,25 @@
+CHANGELOG.md
+  s_f1d25697d107cd::t_b5a15c891b5e5f 7
+cloudamqp/provider.go
+  s_f1d25697d107cd::t_f85eb860d817ca 120
+cloudamqp/resource_cloudamqp_team_member.go
+  s_f1d25697d107cd::t_488f6680836ebf 20-21,24-25,28,32,38,57-58,61,87-88,116-117,144-145,189-190,206
+docs/resources/team_member.md
+  s_f1d25697d107cd::t_de54483bca532b 3,8,15,37,44,51
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "2c5d36d6108a1246843bcde3f6e28d6fc80faae9",
+  "prompts": {},
+  "sessions": {
+    "s_f1d25697d107cd": {
+      "agent_id": {
+        "tool": "opencode",
+        "id": "ses_f133ae5e5ffejayP6R6QmoDGSG",
+        "model": "glm-5.3-flash"
+      },
+      "human_author": "Chris Justesen <chris.justesen@visma.com>"
+    }
+  }
+}
