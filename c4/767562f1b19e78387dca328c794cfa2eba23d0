@@ -1,0 +1,16 @@
+cloudamqp/data_source_cloudamqp_team_members.go
+  h_59a54e20da1417 1-83
+cloudamqp/provider.go
+  h_59a54e20da1417 166
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.4",
+  "base_commit_sha": "c4767562f1b19e78387dca328c794cfa2eba23d0",
+  "prompts": {},
+  "humans": {
+    "h_59a54e20da1417": {
+      "author": "Chris Justesen <chris.justesen@visma.com>"
+    }
+  }
+}
